@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatTarget : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
+
+    public GameObject ballPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +18,10 @@ public class BeatTarget : MonoBehaviour
         
     }
 
- 
+    public void Spawn()
+    {
+        GameObject ball = Instantiate(ballPrefab,transform);
+       ball.transform.parent = transform.parent;
+        ball.transform.position = transform.position;
+    }
 }
